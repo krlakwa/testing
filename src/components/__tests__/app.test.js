@@ -12,5 +12,5 @@ describe('<App />', () => {
   });
   it('shows a comment list', () => {
     expect(wrapper.find(CommentList).length).toEqual(1);
-  })
+  });
 });
