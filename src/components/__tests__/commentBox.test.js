@@ -1,9 +1,22 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
+import Root from 'Root';
 import CommentBox from "components/CommentBox";
 
 describe("CommentBox", () => {
-  const wrapper = shallow(<CommentBox />);
+  let wrapper;
+
+    beforeEach(() => {
+      wrapper = mount(
+        <Root>
+          <CommentBox />
+        </Root>
+        );
+    });
+
+    afterEach(() => {
+      wrapper.unmount();
+    });
 
   it("shows a text area and a button", () => {
     expect(wrapper.find("textarea").length).toEqual(1);
